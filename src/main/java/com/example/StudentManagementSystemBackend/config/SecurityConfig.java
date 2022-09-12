@@ -11,8 +11,6 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
-
-
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -53,8 +51,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/login").permitAll()
                 .anyRequest().authenticated()
-//                .and()
-//                .formLogin()
+                .and()
+                .formLogin()
         ;
         http.csrf().disable();
         http.headers().frameOptions().disable();
